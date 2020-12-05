@@ -5,8 +5,8 @@
 #
 
 declare -a workspaces_installed workspace_active robot_installed new_active
-robot_names=("Baxter" "Pepper" "Wheelchair" "Rotors")
-workspaces_roots=("ros_ws" "pepper_ws" "wheelchair_ws" "rotors_ws")
+robot_names=("Pepper" "Wheelchair" "Rotors")
+workspaces_roots=("pepper_ws" "wheelchair_ws" "rotors_ws")
 
 # Check which robot workspace root exists
 cd ~/
@@ -88,7 +88,7 @@ echo "Shell reloaded!"
 
 # Run pepper workspace setup
 if [ $new_robot = "Pepper" ]; then
-  ./pepper_ws/workspace_setup.sh
+  ./pepper_ws/pepper_workspace_setup.sh
 fi
 
 exec bash
