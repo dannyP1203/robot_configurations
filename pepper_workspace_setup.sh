@@ -168,3 +168,6 @@ fi
 set_config $var $WORKSPACE
 
 echo "Configuration $var applied succesfully."
+echo "Shell reloaded!"
+
+exec bash
