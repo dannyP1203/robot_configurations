@@ -153,6 +153,16 @@ install_pepper() {
 	git clone -b simulation_that_works https://github.com/awesomebytes/pepper_virtual
 	git clone https://github.com/awesomebytes/gazebo_model_velocity_plugin
 	cd ~/$1/$simulation_ws && catkin_make
+	
+	cd ~/$1/$development_ws/src
+	git clone https://github.com/dannyP1203/pepper_developed
+	cd ~/$1/$development_ws && catkin_make
+
+	chmod -R +x ~/$1/$development_ws/src
+
+	# Set remote url to github.config to push commits
+	cd ~/$1/$development_ws/src/pepper_developed
+	git remote set-url origin https://dannyP1203@github.com/dannyP1203/pepper_developed.git
 
 	cd ~/$1
 	curl 'https://raw.githubusercontent.com/dannyP1203/robot_configurations/main/pepper_workspace_setup.sh' > pepper_workspace_setup.sh
