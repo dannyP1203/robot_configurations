@@ -189,12 +189,13 @@ install_rotors() {
 	cd ~/$1/src
 	catkin_init_workspace
 	wstool init
-  wget https://raw.githubusercontent.com/ethz-asl/rotors_simulator/master/rotors_hil.rosinstall
+	git clone https://github.com/ethz-asl/rotors_simulator
+        wget https://raw.githubusercontent.com/ethz-asl/rotors_simulator/master/rotors_hil.rosinstall
 	wstool merge rotors_hil.rosinstall
 	wstool update
 
-	cd ~/$1/src/rotors_simulator
-	git reset --hard ac77a8a
+	# cd ~/$1/src/rotors_simulator
+	# git reset --hard ac77a8a
 
 	cd  ~/$1 && catkin build
 
